@@ -7,17 +7,17 @@ namespace NationalParkGeeks.Models
         [Required(ErrorMessage = "Email Address is required")]
         [DataType(DataType.EmailAddress)]
         [EmailAddress]
-        private string EmailAddress { get; set; }
+        public string EmailAddress { get; set; }
 
         [Required(ErrorMessage = "State is required")]
         [DataType(DataType.Text)]
-        private string State { get; set; }
+        public string State { get; set; }
 
         [Required(ErrorMessage = "Activity Level is required")]
-        private string ActivityLevel { get; set; }
+        public string ActivityLevel { get; set; }
 
         [Required(ErrorMessage = "ParkCode is required")]
-        private string ParkCode { get; set; }
+        public string ParkCode { get; set; }
 
 
         public Survey()

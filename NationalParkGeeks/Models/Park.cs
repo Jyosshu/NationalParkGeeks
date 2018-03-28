@@ -5,21 +5,22 @@ namespace NationalParkGeeks.Models
 {
     public class Park
     {
-        private string ParkCode { get; set; }
-        private string ParkName { get; set; }
-        private string State { get; set; }
-        private float Acreage { get; set; }
-        private float ElevationInFeet { get; set; }
-        private float MilesOfTrail { get; set; }
-        private int NumberOfCampsites { get; set; }
-        private string Climate { get; set; }
-        private string YearFounded { get; set; }
-        private BigInteger AnnualVisitorCount {get; set;}
-        private string InspirationalQuoute { get; set; }
-        private string InspirationalQuoteSource { get; set; }
-        private string ParkDescription { get; set; }
-        private string EntryFee { get; set; }
-        private int NumberOfAnimalSpecies { get; set; }
+        public string ParkCode { get; set; }
+        public string ParkName { get; set; }
+        public string State { get; set; }
+        public double Acreage { get; set; }
+        public double ElevationInFeet { get; set; }
+        public double MilesOfTrail { get; set; }
+        public int NumberOfCampsites { get; set; }
+        public string Climate { get; set; }
+        public string YearFounded { get; set; }
+        public long AnnualVisitorCount {get; set;}
+        public string InspirationalQuoute { get; set; }
+        public string InspirationalQuoteSource { get; set; }
+        public string ParkDescription { get; set; }
+        public string EntryFee { get; set; }
+        public int NumberOfAnimalSpecies { get; set; }
+        
 
         public Park()
         {

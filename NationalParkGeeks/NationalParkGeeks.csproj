@@ -21,9 +21,6 @@
     <Compile Remove="Models\EmptyClass.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Remove="Dockerfile" />
     <None Remove=".dockerignore" />
   </ItemGroup>

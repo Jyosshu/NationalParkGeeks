@@ -1,0 +1,88 @@
+﻿@using NationalParkGeeks.Models;
+@using System.Collections.Generic;
+@model Park
+@{
+    ViewData["Title"] = "ParkDetail";
+}
+@{
+    var SelectedPark = Model;
+    var Weather = ViewBag.one as IEnumerable<NationalParkGeeks.Models.Weather>;
+
+    <h2>@SelectedPark.ParkName</h2>
+
+    var TempParkCode = SelectedPark.ParkCode.ToLower();
+    TempParkCode += ".jpg";
+
+    <div>
+        <img src="~/images/parks/@TempParkCode" />
+    </div>
+    <div>
+        <p> <strong><em> "@SelectedPark.InspirationalQuoute" </em></strong> </p>
+    </div>
+    <div>
+        <p> @SelectedPark.ParkDescription </p>
+
+        @if (SelectedPark.EntryFee.Equals("0.00"))
+        {
+            <p>Entry Fee: Free!</p>
+        }
+        else
+        {
+            <p>Entry Fee: $@SelectedPark.EntryFee</p>
+        }
+
+        <p>State: @SelectedPark.State</p>
+        <p>Acreage: @SelectedPark.Acreage</p>
+        <p>Established: @SelectedPark.YearFounded</p>
+        <p>Number of Visitors: @SelectedPark.AnnualVisitorCount per year</p>
+        <p>Elivation: @SelectedPark.ElevationInFeet</p>
+        <p>Total Miles of Trail: @SelectedPark.MilesOfTrail</p>
+
+        @if (SelectedPark.NumberOfAnimalSpecies == 0)
+        {
+            <p>Total Number of Campsites: No campsites available</p>
+        }
+        else
+        {
+            <p>Total Number of Campsites: @SelectedPark.NumberOfCampsites</p>
+
+        }
+
+        <p>Total Number of Animal Species: @SelectedPark.NumberOfAnimalSpecies</p>
+    </div>
+    <div class="weatherContainer">
+        <div class="currentWeatherContainer">
+            <div class="currentWeatherImage">
+                <h3>Today</h3>
+                @{ 
+                    var today = Weather.FirstOrDefault().GetParsedForecast() + ".png";
+                    
+                    <img src='@Url.Content("~/images/weather/"+@today)' />
+                 }
+                <p> <strong> @Weather.FirstOrDefault().GetWeatherMessage()</strong></p>
+            </div>
+            <div class="fourDayWeatherContainer">
+                @foreach(var forecast in Weather)
+                {
+                    @if(forecast.FiveDayForecastValue > 0)
+                    {
+                        <div class="individualForecasts">
+                            <div class="individualImage">
+                                <img src='@Url.Content("~/images/weather/"+forecast.GetParsedForecast()+".png")' />
+                            </div>
+                            <div class="individualWeatherInfo">
+                                <div>High: @forecast.High</div>
+                                <div>Low: @forecast.Low</div>
+                            </div>
+                            
+                        </div>
+
+                    }
+
+                }
+            </div>
+
+        </div>
+    </div>
+}
+

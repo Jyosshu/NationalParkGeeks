@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using NationalParkGeeks.Models;
+using NationalParkGeeks.DAL;
 
 namespace NationalParkGeeks.Controllers
 {
@@ -12,17 +13,20 @@ namespace NationalParkGeeks.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            ParkDAL dal = new ParkDAL();
+            List<Park> model = dal.GetParks();
+
+            return View(model);
         }
 
-        public IActionResult About()
+        public IActionResult Survey()
         {
             ViewData["Message"] = "Your application description page.";
 
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult TopParks()
         {
             ViewData["Message"] = "Your contact page.";
 

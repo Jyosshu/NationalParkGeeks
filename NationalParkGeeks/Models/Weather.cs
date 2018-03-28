@@ -3,11 +3,11 @@ namespace NationalParkGeeks.Models
 {
     public class Weather
     {
-        private int FiveDayForecastValue { get; set; }
-        private int High { get; set; }
-        private int Low { get; set; }
-        private string Forecast { get; set; }
-        private string WeatherMessage;
+        public int FiveDayForecastValue { get; set; }
+        public int High { get; set; }
+        public int Low { get; set; }
+        public string Forecast { get; set; }
+        public string WeatherMessage;
 
         public Weather()
         {
